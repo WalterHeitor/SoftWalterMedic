@@ -1,22 +1,20 @@
 package br.com.softwalter.med.api.doumain.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Builder
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "medicoId")
 @Table(name = "medicos")
 @Entity(name = "Medico")
 public class Medico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long medicoId;
     private String nome;
     private String email;
     private String crm;
@@ -25,4 +23,5 @@ public class Medico {
     private Especialidade especialidade;
 
     @Embedded
-    private Endereco endereco;}
+    private Endereco endereco;
+}
